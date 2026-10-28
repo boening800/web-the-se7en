@@ -14,15 +14,6 @@
   --color-blanco: #ffffff; /* fondo base */
   --color-logo: #f17084; /* logo */
 
-  /* Perlas decorativas (colores de los stickers). */
-  --perla-rosa: #f59ab8;
-  --perla-fucsia: #e5248f;
-  --perla-azul: #1fa3d6;
-  --perla-verde: #8cc63f;
-  --perla-morado: #9b4fc4;
-  --perla-dorado: #f2a516;
-  --perla-rojo: #d4141f;
-
   --font-texto: 'Montserrat Variable', system-ui, sans-serif;
   --font-titulo: 'Playfair Display Variable', Georgia, serif;
 

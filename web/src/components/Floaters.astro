@@ -1,13 +1,10 @@
 ---
-// Perlas y destellos decorativos que flotan despacio. Se posicionan dentro del
+// Destellos decorativos que flotan despacio. Se posicionan dentro del
 // contenedor padre (que debe tener position: relative).
 import { Image } from 'astro:assets';
 import destello from '../assets/images/destello.png';
 
 export type Floater = {
-  kind: 'pearl' | 'sparkle';
-  /** Color de la perla: nombre de una variable --perla-* de global.css. */
-  color?: 'rosa' | 'fucsia' | 'azul' | 'verde' | 'morado' | 'dorado' | 'rojo';
   top: string;
   left: string;
   /** Tamaño en rem. */
@@ -17,8 +14,6 @@ export type Floater = {
   /** Duración del ciclo de flotación en segundos. */
   duration?: number;
   delay?: number;
-  /** Delante del contenido (por defecto queda detrás). */
-  front?: boolean;
 };
 
 interface Props {
@@ -31,16 +26,12 @@ const { items } = Astro.props;
 {
   items.map((item) => (
     <span
-      class:list={['floater', { 'floater--front': item.front }]}
+      class="floater"
       style={`--top:${item.top};--left:${item.left};--size:${item.size}rem;--dur:${item.duration ?? 7}s;--delay:${item.delay ?? 0}s`}
       data-parallax={item.depth ?? 0.08}
       aria-hidden="true"
     >
-      {item.kind === 'pearl' ? (
-        <span class="floater__body pearl" style={`--perla:var(--perla-${item.color ?? 'rosa'})`} />
-      ) : (
-        <Image class="floater__body floater__sparkle" src={destello} alt="" widths={[64, 128]} sizes="4rem" />
-      )}
+      <Image class="floater__sparkle" src={destello} alt="" widths={[64, 128]} sizes="4rem" />
     </span>
   ))
 }
@@ -55,30 +46,9 @@ const { items } = Astro.props;
     pointer-events: none;
   }
 
-  .floater--front {
-    z-index: 2;
-  }
-
-  .floater__body {
+  .floater__sparkle {
     display: block;
     width: 100%;
-    animation: float var(--dur) ease-in-out var(--delay) infinite alternate;
-  }
-
-  .pearl {
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle at 32% 28%,
-      var(--color-blanco) 0 8%,
-      color-mix(in srgb, var(--perla) 55%, var(--color-blanco)) 22%,
-      var(--perla) 55%,
-      color-mix(in srgb, var(--perla) 70%, black) 100%
-    );
-    box-shadow: 0 0.2rem 0.5rem color-mix(in srgb, var(--perla) 35%, transparent);
-  }
-
-  .floater__sparkle {
     height: auto;
     animation:
       float var(--dur) ease-in-out var(--delay) infinite alternate,

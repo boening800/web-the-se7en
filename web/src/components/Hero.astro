@@ -7,16 +7,7 @@ import Floaters, { type Floater } from './Floaters.astro';
 import { whatsappUrl } from '../config/site';
 
 const caseFloaters: Floater[] = [
-  { kind: 'sparkle', top: '6%', left: '88%', size: 2.6, depth: 0.12, duration: 6 },
-  { kind: 'pearl', color: 'azul', top: '18%', left: '-6%', size: 1.1, depth: 0.2, duration: 7, delay: -2 },
-  { kind: 'pearl', color: 'dorado', top: '62%', left: '-12%', size: 0.8, depth: 0.28, duration: 8, delay: -4 },
-  { kind: 'pearl', color: 'fucsia', top: '88%', left: '70%', size: 1.4, depth: 0.1, duration: 6.5, front: true },
-  { kind: 'pearl', color: 'verde', top: '40%', left: '96%', size: 0.7, depth: 0.25, duration: 9, delay: -3 },
-];
-
-const copyFloaters: Floater[] = [
-  { kind: 'pearl', color: 'morado', top: '-8%', left: '72%', size: 0.9, depth: 0.22, duration: 8, delay: -1 },
-  { kind: 'pearl', color: 'rosa', top: '92%', left: '12%', size: 1.2, depth: 0.16, duration: 7.5, delay: -5 },
+  { top: '6%', left: '88%', size: 2.6, depth: 0.12, duration: 6 },
 ];
 ---
 
@@ -54,7 +45,6 @@ const copyFloaters: Floater[] = [
         <span class="tagline__first">Tu mundo,</span>
         <span class="tagline__second">a tu manera</span>
       </p>
-      <Floaters items={copyFloaters} />
       <Sparkle class="sparkle-tagline" />
       <a class="btn btn--shine" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
         Hazlo tuyo<span class="visually-hidden"> (abre WhatsApp)</span>

@@ -11,7 +11,11 @@ export const WHATSAPP = {
   // Número en formato internacional, sin "+" ni espacios (51 = Perú).
   number: '51956377084',
   display: '956 377 084',
-  message: '¡Hola The Se7en! ✨ Quiero personalizar mi case. ¿Me ayudan con mi diseño?',
+  message: [
+    '¡Hola, The Se7en! ✨ Tengo una idea para mi case y quisiera hacerla realidad.',
+    '📱 Mi celular es: [marca y modelo]',
+    '💭 Mi idea es: [cuéntanos aquí]',
+  ].join('\n'),
 };
 
 export const whatsappUrl = (message: string = WHATSAPP.message) =>
