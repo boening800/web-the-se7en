@@ -35,7 +35,7 @@ npm run preview   # sirve la versión compilada
 ## Cambios frecuentes
 
 - **WhatsApp y mensaje del botón "Hazlo tuyo"**: `web/src/config/site.ts` (`WHATSAPP`).
-- **Redes sociales**: `web/src/config/site.ts` (`SOCIALS`). Hoy apuntan a `#` hasta tener los enlaces reales.
+- **Redes sociales**: `web/src/config/site.ts` (`SOCIALS`).
 - **Colores**: solo en `web/src/styles/global.css` (`:root`). Los componentes no usan colores fijos.
 - **Imágenes**: reemplaza los archivos de `web/src/assets/images/` manteniendo el mismo nombre.
 
@@ -56,5 +56,5 @@ Configuración única: en GitHub, **Settings → Pages → Build and deployment 
 
 - [x] Logo, destello y foto del case originales.
 - [ ] Imagen original de los stickers de la sección Nosotros (hoy es un recorte de la maqueta).
-- [ ] Enlaces de Instagram, Facebook y TikTok.
+- [x] Enlaces de Instagram, Facebook y TikTok.
 - [ ] Dominio propio (opcional; hoy se publica en GitHub Pages).

@@ -19,11 +19,10 @@ export const whatsappUrl = (message: string = WHATSAPP.message) =>
 
 export type SocialPlatform = 'instagram' | 'facebook' | 'tiktok';
 
-// [PENDIENTE] Reemplazar "#" por los enlaces reales de cada red social.
 export const SOCIALS: { platform: SocialPlatform; label: string; url: string }[] = [
-  { platform: 'instagram', label: 'Instagram', url: '#' },
-  { platform: 'facebook', label: 'Facebook', url: '#' },
-  { platform: 'tiktok', label: 'TikTok', url: '#' },
+  { platform: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/__these7en/' },
+  { platform: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61579263255040' },
+  { platform: 'tiktok', label: 'TikTok', url: 'https://www.tiktok.com/@these7encases' },
 ];
 
 export const NAV = [

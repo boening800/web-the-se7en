@@ -21,9 +21,9 @@ import { whatsappUrl } from '../config/site';
   </h1>
 
   <div class="content">
-    <div class="circle circle--fill" aria-hidden="true"></div>
-    <div class="circle circle--line" aria-hidden="true"></div>
     <div class="visual" data-reveal>
+      <div class="circle circle--fill" aria-hidden="true"></div>
+      <div class="circle circle--line" aria-hidden="true"></div>
       <Image
         class="case"
         src={heroCase}
@@ -77,24 +77,23 @@ import { whatsappUrl } from '../config/site';
     position: relative;
     display: grid;
     align-items: center;
-    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+    max-width: var(--ancho-max);
+    margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
   }
 
-  /* Círculos detrás del celular: anclados al borde izquierdo de la pantalla. */
+  /* Círculos detrás del celular: siguen al celular y salen por la izquierda en pantallas medianas. */
   .circle--fill {
-    top: 32%;
-    left: 0;
-    width: clamp(22rem, 38vw, 40rem);
+    top: 12%;
+    right: 50%;
+    width: 110%;
     background: var(--color-rosa-claro);
-    transform: translate(-40%, -40%);
   }
 
   .circle--line {
-    top: 27%;
-    left: 0;
-    width: clamp(20rem, 34vw, 36rem);
+    top: -2%;
+    right: 66%;
+    width: 100%;
     border: 1px solid var(--color-vino);
-    transform: translate(-58%, -58%);
   }
 
   .visual {
@@ -152,17 +151,10 @@ import { whatsappUrl } from '../config/site';
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     }
 
-    .circle--fill {
-      top: 55%;
-    }
-
-    .circle--line {
-      top: 50%;
-    }
-
     .visual {
-      width: min(100% - clamp(1rem, 10vw, 12rem), 26rem);
-      margin-left: clamp(1rem, 10vw, 12rem);
+      justify-self: end;
+      width: min(100% - var(--gutter), 26rem);
+      margin: 0 clamp(0rem, 2vw, 2rem) 0 0;
     }
 
     .copy {
