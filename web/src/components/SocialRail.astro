@@ -1,0 +1,65 @@
+---
+import { SOCIALS } from '../config/site';
+import SocialIcon from './SocialIcon.astro';
+---
+
+<aside class="rail" aria-label="Redes sociales">
+  <ul>
+    {
+      SOCIALS.map((social) => (
+        <li>
+          <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+            <SocialIcon platform={social.platform} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  .rail {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 15;
+    display: grid;
+    place-items: center end;
+    width: 7.5rem;
+    height: 15rem;
+    padding-right: 1.6rem;
+    border-radius: 0 999px 999px 0;
+    background: var(--color-blanco);
+    box-shadow: var(--sombra-suave);
+    transform: translate(-3rem, -50%);
+  }
+
+  ul {
+    display: grid;
+    gap: 1.1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    color: var(--color-vino);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  a:hover {
+    background: var(--color-rosa-suave);
+    color: var(--color-rosa-intenso);
+  }
+
+  @media (max-width: 47.99rem) {
+    .rail {
+      display: none;
+    }
+  }
+</style>

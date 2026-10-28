@@ -1,0 +1,108 @@
+---
+import { SOCIALS, WHATSAPP, whatsappUrl, SITE } from '../config/site';
+import SocialIcon from './SocialIcon.astro';
+import Sparkle from './Sparkle.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer id="contacto" class="footer">
+  <div class="inner" data-reveal>
+    <Sparkle class="footer-sparkle" />
+    <h2>Contacto</h2>
+    <p class="lead">¿Lista o listo para crear tu case? Escríbenos y lo diseñamos juntos.</p>
+
+    <a class="btn btn--light" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+      WhatsApp {WHATSAPP.display}<span class="visually-hidden"> (abre WhatsApp)</span>
+    </a>
+
+    <ul class="socials" aria-label="Redes sociales">
+      {
+        SOCIALS.map((social) => (
+          <li>
+            <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+              <SocialIcon platform={social.platform} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="copy">© {year} {SITE.name}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: clamp(3.5rem, 8vw, 5rem) var(--gutter) 2rem;
+    background: var(--color-vino);
+    color: var(--color-blanco);
+    text-align: center;
+  }
+
+  .inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .inner :global(.footer-sparkle) {
+    width: 2.25rem;
+    fill: var(--color-rosa-claro);
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-titulo);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 700;
+  }
+
+  .lead {
+    margin: 0;
+    color: var(--color-rosa-suave);
+    font-size: 1.05rem;
+  }
+
+  .btn--light {
+    background: var(--color-blanco);
+    color: var(--color-vino);
+    font-size: 1.1rem;
+  }
+
+  .btn--light:hover {
+    background: var(--color-rosa-claro);
+    color: var(--color-vino);
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .socials a {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-blanco) 40%, transparent);
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .socials a:hover {
+    background: var(--color-blanco);
+    color: var(--color-vino);
+  }
+
+  .copy {
+    margin: 1.5rem 0 0;
+    color: color-mix(in srgb, var(--color-blanco) 70%, transparent);
+    font-size: 0.85rem;
+  }
+</style>

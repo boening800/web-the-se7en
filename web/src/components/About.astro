@@ -1,0 +1,118 @@
+---
+import { Image } from 'astro:assets';
+import stickers from '../assets/images/nosotros-stickers.png';
+---
+
+<section id="nosotros" class="about">
+  <div class="circle" aria-hidden="true"></div>
+
+  <div class="inner">
+    <h2 data-reveal>Nosotros</h2>
+
+    <div class="grid">
+      <Image
+        class="image"
+        src={stickers}
+        alt="Stickers de estrellas y perlas de colores para decorar cases"
+        widths={[315]}
+        sizes="(min-width: 48rem) 315px, 70vw"
+        data-reveal
+      />
+
+      <div class="text" data-reveal>
+        <p>
+          En The Se7en creemos que un case es más que un accesorio, es una forma de llevar contigo{' '}
+          <em>lo que te hace diferente</em>.
+        </p>
+        <p>
+          Transformamos fotos, recuerdos y detalles especiales en diseños THE SE7EN personalizados que te
+          acompañan en tu día a día, expresando tu estilo,{' '}<em>tu historia y tu esencia</em>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) var(--gutter) clamp(5rem, 12vw, 9rem);
+    overflow: hidden;
+  }
+
+  .circle {
+    position: absolute;
+    right: -6rem;
+    bottom: -9rem;
+    width: clamp(14rem, 30vw, 20rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-rosa-claro);
+  }
+
+  .circle::after {
+    content: '';
+    position: absolute;
+    inset: 4rem -4rem -4rem 4rem;
+    border: 1px solid var(--color-vino);
+    border-radius: 50%;
+  }
+
+  .inner {
+    position: relative;
+    max-width: 62rem;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-rosa);
+    font-family: var(--font-titulo);
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+    font-weight: 700;
+  }
+
+  .grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .grid :global(.image) {
+    width: min(70vw, 19.7rem);
+    margin-inline: auto;
+  }
+
+  .text {
+    color: var(--color-rosa-intenso);
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
+  }
+
+  .text p {
+    margin: 0;
+  }
+
+  .text p + p {
+    margin-top: 1.5em;
+  }
+
+  em {
+    color: var(--color-vino);
+  }
+
+  @media (min-width: 48rem) {
+    .grid {
+      grid-template-columns: auto 1fr;
+      gap: clamp(3rem, 8vw, 6rem);
+    }
+
+    .text {
+      padding-left: clamp(2rem, 4vw, 3rem);
+      border-left: 1px solid color-mix(in srgb, var(--color-vino) 35%, transparent);
+      text-align: justify;
+    }
+  }
+</style>

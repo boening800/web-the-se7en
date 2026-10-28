@@ -1,0 +1,142 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo-the-se7en.png';
+import heroCase from '../assets/images/hero-case.png';
+import Sparkle from './Sparkle.astro';
+import { whatsappUrl } from '../config/site';
+---
+
+<section id="inicio" class="hero">
+  <div class="circle circle--right" aria-hidden="true"></div>
+
+  <h1 class="logo">
+    <Image src={logo} alt="The Se7en" widths={[480, 855]} sizes="(min-width: 60rem) 855px, 90vw" loading="eager" fetchpriority="high" />
+  </h1>
+
+  <div class="content">
+    <div class="visual" data-reveal>
+      <Image
+        src={heroCase}
+        alt="Case transparente personalizado con stickers de estrellas y perlas de colores"
+        widths={[320, 465]}
+        sizes="(min-width: 48rem) 465px, 85vw"
+        loading="eager"
+      />
+    </div>
+
+    <div class="copy" data-reveal>
+      <p class="tagline">
+        <span class="tagline__first">Tu mundo,</span>
+        <span class="tagline__second">a tu manera</span>
+      </p>
+      <Sparkle class="sparkle-tagline" />
+      <a class="btn" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+        Hazlo tuyo<span class="visually-hidden"> (abre WhatsApp)</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: clamp(0.5rem, 2vw, 1.5rem);
+    overflow: hidden;
+  }
+
+  .circle--right {
+    position: absolute;
+    top: clamp(18rem, 40vw, 24rem);
+    right: -14rem;
+    width: 20rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-rosa-suave);
+  }
+
+  .logo {
+    width: min(100% - 2 * var(--gutter), 53rem);
+    margin: 0 auto;
+  }
+
+  .content {
+    position: relative;
+    display: grid;
+    align-items: center;
+    max-width: var(--ancho-max);
+    margin: clamp(1.5rem, 4vw, 2.5rem) auto 0;
+  }
+
+  .visual {
+    max-width: 29rem;
+  }
+
+  .copy {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+    padding: 2rem var(--gutter) 3rem;
+  }
+
+  .tagline {
+    margin: 0;
+    font-family: var(--font-titulo);
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    line-height: 1.05;
+  }
+
+  .tagline span {
+    display: block;
+  }
+
+  .tagline__first {
+    color: var(--color-vino);
+    font-weight: 500;
+  }
+
+  .tagline__second {
+    padding-left: 0.5em;
+    color: var(--color-rosa-intenso);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .copy :global(.sparkle-tagline) {
+    position: absolute;
+    top: 42%;
+    right: max(var(--gutter), 8%);
+    width: clamp(3rem, 8vw, 5.25rem);
+  }
+
+  @media (min-width: 48rem) {
+    .content {
+      grid-template-columns: minmax(0, 29rem) 1fr;
+    }
+
+    .copy {
+      justify-items: start;
+      padding-block: 0 4rem;
+    }
+
+    .btn {
+      margin-left: 18%;
+    }
+
+    .copy :global(.sparkle-tagline) {
+      top: auto;
+      bottom: 22%;
+      right: var(--gutter);
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .visual {
+      width: 85%;
+    }
+
+    .copy :global(.sparkle-tagline) {
+      top: 0;
+    }
+  }
+</style>
