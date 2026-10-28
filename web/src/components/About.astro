@@ -1,10 +1,19 @@
 ---
 import { Image } from 'astro:assets';
 import stickers from '../assets/images/nosotros-stickers.png';
+import Floaters, { type Floater } from './Floaters.astro';
+
+const floaters: Floater[] = [
+  { kind: 'pearl', color: 'rojo', top: '14%', left: '6%', size: 0.9, depth: 0.14, duration: 8 },
+  { kind: 'sparkle', top: '8%', left: '86%', size: 2, depth: 0.2, duration: 7, delay: -2 },
+  { kind: 'pearl', color: 'azul', top: '78%', left: '44%', size: 1.1, depth: 0.1, duration: 6.5, delay: -3 },
+  { kind: 'pearl', color: 'dorado', top: '58%', left: '93%', size: 0.75, depth: 0.24, duration: 9, delay: -1 },
+];
 ---
 
 <section id="nosotros" class="about">
-  <div class="circle" aria-hidden="true"></div>
+  <div class="circle" data-parallax="0.1" aria-hidden="true"></div>
+  <Floaters items={floaters} />
 
   <div class="inner">
     <h2 data-reveal>Nosotros</h2>

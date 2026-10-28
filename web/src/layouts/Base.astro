@@ -54,6 +54,37 @@ const ogImage = Astro.site ? new URL(logo.src, Astro.site).href : undefined;
         );
         items.forEach((el) => observer.observe(el));
       }
+
+      // Parallax suave: cada elemento se desplaza según su data-parallax
+      // respecto a la sección que lo contiene, así parece ir con retraso.
+      const layers = [...document.querySelectorAll<HTMLElement>('[data-parallax]')].map((el) => ({
+        el,
+        speed: Number(el.dataset.parallax) || 0,
+        section: el.closest<HTMLElement>('section, footer') ?? document.body,
+      }));
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      if (layers.length && !reduceMotion.matches) {
+        let ticking = false;
+        const update = () => {
+          ticking = false;
+          const vh = window.innerHeight;
+          for (const { el, speed, section } of layers) {
+            const rect = section.getBoundingClientRect();
+            if (rect.bottom < -vh || rect.top > vh * 2) continue;
+            el.style.setProperty('--parallax-y', `${(-rect.top * speed).toFixed(1)}px`);
+          }
+        };
+        const onScroll = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        update();
+      }
     </script>
   </body>
 </html>

@@ -14,6 +14,15 @@
   --color-blanco: #ffffff; /* fondo base */
   --color-logo: #f17084; /* logo */
 
+  /* Perlas decorativas (colores de los stickers). */
+  --perla-rosa: #f59ab8;
+  --perla-fucsia: #e5248f;
+  --perla-azul: #1fa3d6;
+  --perla-verde: #8cc63f;
+  --perla-morado: #9b4fc4;
+  --perla-dorado: #f2a516;
+  --perla-rojo: #d4141f;
+
   --font-texto: 'Montserrat Variable', system-ui, sans-serif;
   --font-titulo: 'Playfair Display Variable', Georgia, serif;
 
@@ -68,6 +77,9 @@ a {
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +93,22 @@ a {
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Reflejo de luz que cruza el botón cada pocos segundos. */
+.btn--shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    color-mix(in srgb, var(--color-blanco) 45%, transparent) 50%,
+    transparent 65%
+  );
+  translate: -120% 0;
+  animation: shine 5s ease-in-out 1.5s infinite;
 }
 
 .btn:hover {
@@ -99,6 +127,46 @@ a {
 .js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Animaciones decorativas. Usan translate/rotate/scale por separado para poder combinarse. */
+@keyframes float {
+  from {
+    translate: 0 -0.5rem;
+    rotate: -2deg;
+  }
+  to {
+    translate: 0 0.5rem;
+    rotate: 2deg;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+  50% {
+    scale: 0.8;
+    opacity: 0.65;
+  }
+}
+
+@keyframes shine {
+  0%,
+  60% {
+    translate: -120% 0;
+  }
+  100% {
+    translate: 120% 0;
+  }
+}
+
+/* Parallax: el JS del layout actualiza --parallax-y al hacer scroll. */
+[data-parallax] {
+  translate: 0 var(--parallax-y, 0px);
+  will-change: translate;
 }
 
 @media (prefers-reduced-motion: reduce) {
