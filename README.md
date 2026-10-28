@@ -39,7 +39,13 @@ npm run preview   # sirve la versión compilada
 - **Colores**: solo en `web/src/styles/global.css` (`:root`). Los componentes no usan colores fijos.
 - **Imágenes**: reemplaza los archivos de `web/src/assets/images/` manteniendo el mismo nombre.
 
-## Despliegue (Vercel o Netlify)
+## Publicación en GitHub Pages
+
+El sitio se publica solo en **https://boening800.github.io/web-the-se7en/** cada vez que se sube un cambio a `main` (workflow `.github/workflows/deploy.yml`). También puede lanzarse a mano desde la pestaña **Actions**.
+
+Configuración única: en GitHub, **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+## Despliegue alternativo (Vercel o Netlify)
 
 - Directorio raíz: `web`
 - Comando de build: `npm run build`
@@ -50,4 +56,4 @@ npm run preview   # sirve la versión compilada
 
 - [ ] Logo e imágenes originales (hoy son recortes provisionales de la maqueta).
 - [ ] Enlaces de Instagram, Facebook y TikTok.
-- [ ] Dominio y hosting.
+- [ ] Dominio propio (opcional; hoy se publica en GitHub Pages).

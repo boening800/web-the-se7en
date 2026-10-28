@@ -2,10 +2,16 @@
 import { defineConfig } from 'astro/config';
 import { loadEnv } from 'vite';
 
-// URL pública del sitio (canonical y Open Graph). Configúrala en PUBLIC_SITE_URL al desplegar.
-const { PUBLIC_SITE_URL } = loadEnv(import.meta.env?.MODE ?? 'production', new URL('.', import.meta.url).pathname, '');
+// PUBLIC_SITE_URL: URL pública del sitio (canonical y Open Graph).
+// PUBLIC_BASE_PATH: subcarpeta donde se publica (en GitHub Pages, "/web-the-se7en").
+const { PUBLIC_SITE_URL, PUBLIC_BASE_PATH } = loadEnv(
+  import.meta.env?.MODE ?? 'production',
+  new URL('.', import.meta.url).pathname,
+  '',
+);
 
 export default defineConfig({
   site: PUBLIC_SITE_URL || undefined,
+  base: PUBLIC_BASE_PATH || '/',
   output: 'static',
 });
