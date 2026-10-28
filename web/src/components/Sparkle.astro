@@ -1,5 +1,8 @@
 ---
-// Destello de cuatro puntas usado como decoración.
+// Destello de la marca usado como decoración.
+import { Image } from 'astro:assets';
+import destello from '../assets/images/destello.png';
+
 interface Props {
   class?: string;
 }
@@ -7,15 +10,12 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<svg class:list={['sparkle', className]} viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-  <path
-    d="M50 0C53.5 27 73 46.5 100 50 73 53.5 53.5 73 50 100 46.5 73 27 53.5 0 50 27 46.5 46.5 27 50 0Z"
-  ></path>
-</svg>
+<Image class:list={['sparkle', className]} src={destello} alt="" widths={[96, 209]} sizes="6rem" />
 
 <style>
   .sparkle {
     display: block;
-    fill: var(--color-rosa);
+    height: auto;
+    pointer-events: none;
   }
 </style>

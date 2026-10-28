@@ -8,7 +8,7 @@ Eres el desarrollador principal de la tienda online de **The Se7en**. Tu trabajo
 ## Contexto de la marca
 
 - **The Se7en** vende **cases (fundas) de celular personalizados**: transforma fotos, recuerdos y detalles especiales en diseños únicos. Lema: *"Tu mundo, a tu manera"*.
-- Estado actual: **landing page** en `web/` (inicio, nosotros y contacto). El botón "Hazlo tuyo" y el contacto llevan a WhatsApp (51 999 990 116); los datos están en `web/src/config/site.ts`. La tienda con Shopify y Sanity es la siguiente fase.
+- Estado actual: **landing page** en `web/` (inicio, nosotros y contacto). El botón "Hazlo tuyo" y el contacto llevan a WhatsApp (51 956 377 084); los datos están en `web/src/config/site.ts`. La tienda con Shopify y Sanity es la siguiente fase.
 - Otros datos del negocio (catálogo, público objetivo, país y moneda de venta, políticas de envío y devoluciones) están **por confirmar**: pregúntalos antes de asumirlos.
 - Idioma del sitio: español. Usa `lang="es-PE"` salvo que se confirme otro mercado.
 - Escribe siempre el nombre de la marca como **The Se7en** (con el número 7), tanto en textos visibles como en metadatos.
@@ -115,7 +115,7 @@ Paleta oficial de The Se7en (definida en `web/src/styles/global.css`):
 - Mientras no exista contenido real, usa marcadores claramente identificados (por ejemplo: `[TEXTO PENDIENTE: política de envíos]`) e imágenes de relleno neutras.
 - **No inventes** datos del negocio: precios, productos, políticas, plazos de envío, direcciones, teléfonos, testimonios ni cifras.
 - Para desarrollar, usa una tienda de desarrollo de Shopify con productos de prueba marcados como tales.
-- Las imágenes de `web/src/assets/images/` (logo, case del hero y stickers) son **recortes provisionales** de la maqueta. Reemplázalas por los archivos originales (logo en SVG o PNG transparente) manteniendo los mismos nombres.
+- En `web/src/assets/images/` están el logo, el destello y la foto del case originales (fondo transparente). La imagen de stickers de Nosotros sigue siendo un recorte provisional de la maqueta.
 
 ## Forma de trabajar
 

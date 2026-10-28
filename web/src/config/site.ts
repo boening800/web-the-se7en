@@ -9,8 +9,8 @@ export const SITE = {
 
 export const WHATSAPP = {
   // Número en formato internacional, sin "+" ni espacios (51 = Perú).
-  number: '51999990116',
-  display: '999 990 116',
+  number: '51956377084',
+  display: '956 377 084',
   message: '¡Hola The Se7en! ✨ Quiero personalizar mi case. ¿Me ayudan con mi diseño?',
 };
 
